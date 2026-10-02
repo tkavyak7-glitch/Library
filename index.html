@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Your Peaceful Reading Space | Digital Book Library</title>
+  <meta name="description" content="Discover, read, learn, and grow in a serene, distraction-free digital book library with online reading tracking.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      <span>Peaceful Library</span>
+    </a>
+    <ul class="nav-menu" id="nav-menu-container"></ul>
+    <div class="nav-actions" id="nav-actions-container"></div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <main class="main-wrapper">
+
+    <!-- Welcoming Peaceful Hero -->
+    <section class="quote-card" style="padding: 3.5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, rgba(74, 124, 89, 0.12) 100%); margin-bottom: 3rem;">
+      <h1 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.75rem;">
+        Welcome to Your Peaceful Reading Space
+      </h1>
+      <p style="font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.75rem auto;">
+        "Discover, Read, Learn, Grow – A serene sanctuary designed for mindful readers and lifelong thinkers."
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="books.html" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1.05rem;">
+          📖 Explore Library
+        </a>
+        <a href="register.html" class="btn btn-outline" style="padding: 0.85rem 2rem; font-size: 1.05rem;">
+          ✨ Start Reading Tracker
+        </a>
+      </div>
+    </section>
+
+    <!-- Daily Inspirational Quote Box -->
+    <section class="quote-card" id="quote-slideshow">
+      <p class="quote-text" id="quote-text-display">"Reading gives us some place to go when we have to stay where we are."</p>
+      <p class="quote-author" id="quote-author-display">— Mason Cooley</p>
+    </section>
+
+    <!-- Featured Bookshelf Highlights -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">✨ Featured Peaceful Reads</h2>
+        <a href="books.html" class="btn btn-outline btn-sm">View All Books →</a>
+      </div>
+
+      <div class="books-grid" id="home-featured-books">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Peaceful Features Grid -->
+    <section style="margin-top: 4rem;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <h2 style="font-family: var(--font-heading); font-size: 2rem; color: var(--text-main);">
+          Designed for Distraction-Free Reading
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">Everything you need to nurture a calm and rewarding reading habit.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem;">
+        
+        <div class="card-bg" style="background-color: var(--card-bg); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📄</div>
+          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: var(--primary-dark);">PDF Online Reader</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Full-screen browser reader with page controls, zoom, font sizing, bookmarks, and dark mode.</p>
+        </div>
+
+        <div class="card-bg" style="background-color: var(--card-bg); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">⏱️</div>
+          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: var(--primary-dark);">Automatic Reading Tracker</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Auto-saves last page read, percentage completed, total reading hours, and daily reading goals.</p>
+        </div>
+
+        <div class="card-bg" style="background-color: var(--card-bg); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎵</div>
+          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: var(--primary-dark);">Ambient Audio</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Toggle soothing nature rain and library ambience sounds while reading to stay in deep focus.</p>
+        </div>
+
+        <div class="card-bg" style="background-color: var(--card-bg); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
+          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: var(--primary-dark);">Personal Uploads</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Upload your own PDF books with covers into "My Library" and organize your personal collection.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Peaceful Book Library & Reading Tracker. Crafted with <span class="footer-heart">♥</span> for peaceful readers.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/audio.js"></script>
+  <script>
+    const quotes = [
+      { text: "Reading gives us some place to go when we have to stay where we are.", author: "Mason Cooley" },
+      { text: "A book is a dream that you hold in your hand.", author: "Neil Gaiman" },
+      { text: "In the stillness of a book, the world finds its quiet voice.", author: "Peaceful Library" },
+      { text: "Today a reader, tomorrow a leader.", author: "Margaret Fuller" }
+    ];
+
+    let quoteIdx = 0;
+    setInterval(() => {
+      quoteIdx = (quoteIdx + 1) % quotes.length;
+      document.getElementById('quote-text-display').innerText = `"${quotes[quoteIdx].text}"`;
+      document.getElementById('quote-author-display').innerText = `— ${quotes[quoteIdx].author}`;
+    }, 6000);
+
+    // Fetch featured books
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const data = await API.request('/books');
+        const grid = document.getElementById('home-featured-books');
+        if (data.books && data.books.length > 0) {
+          grid.innerHTML = data.books.slice(0, 4).map(b => `
+            <div class="book-card">
+              <div class="book-cover-wrap">
+                <img src="${b.coverImage}" class="book-cover-img" alt="${b.title}" onerror="this.src='/uploads/covers/default-cover.png'">
+              </div>
+              <div class="book-info">
+                <span class="book-category">${b.category}</span>
+                <h3 class="book-title">${b.title}</h3>
+                <p class="book-author">by ${b.author}</p>
+                <div class="book-meta">
+                  <span class="rating-stars">★ ${b.averageRating || '4.8'} (${b.numReviews || 0})</span>
+                  <a href="reader.html?id=${b._id}" class="btn btn-primary btn-sm">Read Now</a>
+                </div>
+              </div>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

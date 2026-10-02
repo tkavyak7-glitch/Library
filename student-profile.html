@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile | College Library Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="admin.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      <span>Back to Admin Dashboard</span>
+    </a>
+    <div class="nav-actions" id="nav-actions-container"></div>
+  </nav>
+
+  <main class="main-wrapper">
+    <div style="display: flex; gap: 2rem;">
+      
+      <!-- Left Sidebar: Student Info Card -->
+      <aside style="width: 350px; flex-shrink: 0;">
+        <div class="student-card" style="background: var(--card-bg); border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: 2rem; box-shadow: var(--shadow-subtle);">
+          <div class="student-header" style="flex-direction: column; text-align: center; border-bottom: none; padding-bottom: 0;">
+            <img id="sp-photo" src="/uploads/avatars/default-avatar.png" class="student-avatar-lg" alt="Student Photo">
+            <div>
+              <h2 id="sp-name" style="font-family: var(--font-heading); margin-bottom: 0.25rem;">Student Name</h2>
+              <span id="sp-id" class="badge badge-primary">ID: Loading...</span>
+            </div>
+          </div>
+          
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
+
+          <div class="info-item">
+            <div class="info-label">Email</div>
+            <div class="info-value" id="sp-email">-</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Department</div>
+            <div class="info-value" id="sp-department">-</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Year / Semester</div>
+            <div class="info-value" id="sp-year-sem">-</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Phone</div>
+            <div class="info-value" id="sp-phone">-</div>
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
+            <div style="background: rgba(230,57,70,0.1); padding: 1rem; border-radius: var(--radius-sm);">
+              <div style="font-size: 1.5rem; font-weight: bold; color: var(--danger);" id="sp-pending-fines">₹0</div>
+              <div style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Pending Fines</div>
+            </div>
+            <div style="background: rgba(42,157,143,0.1); padding: 1rem; border-radius: var(--radius-sm);">
+              <div style="font-size: 1.5rem; font-weight: bold; color: var(--success);" id="sp-active-issues">0</div>
+              <div style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Active Issues</div>
+            </div>
+          </div>
+
+          <button class="btn btn-outline" style="width: 100%; margin-top: 1.5rem;" onclick="alert('Edit logic pending')">Edit Student Profile</button>
+        </div>
+      </aside>
+
+      <!-- Right Area: Tabs & Tables -->
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 2rem;">
+        
+        <!-- Physical Library History -->
+        <div style="background: var(--card-bg); border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: 2rem; box-shadow: var(--shadow-subtle);">
+          <h3 style="font-family: var(--font-heading); margin-bottom: 1.5rem;">📚 Physical Library History</h3>
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Book</th>
+                  <th>Issue Date</th>
+                  <th>Due Date</th>
+                  <th>Return Date</th>
+                  <th>Status</th>
+                  <th>Fine</th>
+                </tr>
+              </thead>
+              <tbody id="sp-transactions-body">
+                <tr><td colspan="6" style="text-align: center;">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Online Reading History -->
+        <div style="background: var(--card-bg); border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: 2rem; box-shadow: var(--shadow-subtle);">
+          <h3 style="font-family: var(--font-heading); margin-bottom: 1.5rem;">💻 Online Reading Sessions</h3>
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Book</th>
+                  <th>Date</th>
+                  <th>Duration</th>
+                  <th>Pages Read</th>
+                  <th>Progress</th>
+                </tr>
+              </thead>
+              <tbody id="sp-sessions-body">
+                <tr><td colspan="5" style="text-align: center;">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/student-profile.js"></script>
+</body>
+</html>

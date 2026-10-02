@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Library | Peaceful Reading Space</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      <span>Peaceful Library</span>
+    </a>
+    <ul class="nav-menu" id="nav-menu-container"></ul>
+    <div class="nav-actions" id="nav-actions-container"></div>
+  </nav>
+
+  <main class="main-wrapper">
+
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">📖 My Personal Library Shelf</h1>
+        <p style="color: var(--text-muted);">Upload and manage your custom PDF books collection.</p>
+      </div>
+      <button onclick="toggleUploadForm()" class="btn btn-primary">
+        📤 Upload PDF Book
+      </button>
+    </div>
+
+    <!-- Upload Form Box (Collapsible) -->
+    <div id="upload-form-container" style="display: none; background-color: var(--card-bg); border-radius: var(--radius-lg); border: 1.5px dashed var(--primary); padding: 2rem; margin-bottom: 2.5rem; box-shadow: var(--shadow-subtle);">
+      <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 1.25rem;">
+        📤 Upload New PDF Book
+      </h3>
+
+      <form id="upload-book-form" enctype="multipart/form-data">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
+          
+          <div class="form-group">
+            <label class="form-label" for="book-title">Book Title *</label>
+            <input type="text" id="book-title" name="title" class="form-control" placeholder="e.g. Peaceful Mindset Guide" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="book-author">Author *</label>
+            <input type="text" id="book-author" name="author" class="form-control" placeholder="e.g. Dr. Clara Emerson" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="book-category">Category</label>
+            <input type="text" id="book-category" name="category" class="form-control" placeholder="e.g. Self-Growth">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="book-pages">Estimated Pages</label>
+            <input type="number" id="book-pages" name="totalPages" class="form-control" value="100" min="1">
+          </div>
+
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="book-description">Description / Notes</label>
+          <textarea id="book-description" name="description" class="form-control" rows="2" placeholder="Brief summary of this book..."></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+          <div class="form-group">
+            <label class="form-label" for="pdf-file-input">PDF File * (Max 50MB)</label>
+            <input type="file" id="pdf-file-input" name="pdfFile" accept="application/pdf" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cover-file-input">Cover Image (Optional)</label>
+            <input type="file" id="cover-file-input" name="coverImage" accept="image/*" class="form-control">
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <button type="submit" class="btn btn-primary">Submit Upload</button>
+          <button type="button" onclick="toggleUploadForm()" class="btn btn-outline">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- My Books Grid -->
+    <div class="books-grid" id="my-books-grid">
+      <!-- Rendered dynamically -->
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Peaceful Book Library & Reading Tracker.</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/mylibrary.js"></script>
+</body>
+</html>

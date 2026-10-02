@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Peaceful Reading Space</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      <span>Peaceful Library</span>
+    </a>
+    <ul class="nav-menu" id="nav-menu-container"></ul>
+    <div class="nav-actions" id="nav-actions-container"></div>
+  </nav>
+
+  <main class="main-wrapper">
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1 class="auth-title">Create Account</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Join our tranquil community of book lovers.</p>
+      </div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="name">Full Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Aria Vance" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="aria@library.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="At least 6 characters" minlength="6" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="role">Account Role</label>
+          <select id="role" class="form-control">
+            <option value="user">Standard Reader</option>
+            <option value="admin">Librarian (Admin)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;">
+          Create Peaceful Space Account
+        </button>
+      </form>
+
+      <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+        Already have an account? <a href="login.html" style="font-weight: 600;">Sign In</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Peaceful Book Library & Reading Tracker.</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/audio.js"></script>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const role = document.getElementById('role').value;
+
+      try {
+        const data = await API.request('/auth/register', {
+          method: 'POST',
+          body: JSON.stringify({ name, email, password, role })
+        });
+
+        if (data.token) {
+          API.setToken(data.token);
+          API.setUser(data.user);
+          showToast('Account created successfully! Welcome 🌿', 'success');
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000);
+        }
+      } catch (err) {
+        showToast(err.message || 'Registration failed', 'danger');
+      }
+    });
+  </script>
+</body>
+</html>

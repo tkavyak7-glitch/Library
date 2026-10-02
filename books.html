@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Library | Peaceful Reading Space</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      <span>Peaceful Library</span>
+    </a>
+    <ul class="nav-menu" id="nav-menu-container"></ul>
+    <div class="nav-actions" id="nav-actions-container"></div>
+  </nav>
+
+  <main class="main-wrapper">
+
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">📚 Public Digital Bookshelf</h1>
+        <p style="color: var(--text-muted);">Browse our curated peaceful reading collection.</p>
+      </div>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" class="search-input" placeholder="Search by book title or author name...">
+      </div>
+
+      <div class="filter-group">
+        <select id="category-filter" class="select-control">
+          <option value="All">All Categories</option>
+        </select>
+
+        <select id="author-filter" class="select-control">
+          <option value="All">All Authors</option>
+        </select>
+
+        <select id="sort-select" class="select-control">
+          <option value="newest">Newest Added</option>
+          <option value="rating">Highest Rated</option>
+          <option value="title">Title A-Z</option>
+          <option value="oldest">Oldest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Books Grid -->
+    <div class="books-grid" id="books-grid-container">
+      <!-- Dynamically filled -->
+    </div>
+
+  </main>
+
+  <!-- Book Detail & Review Modal -->
+  <div class="modal-overlay" id="book-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeBookModal()">×</button>
+      <div id="modal-body-content"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Peaceful Book Library & Reading Tracker.</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/books.js"></script>
+</body>
+</html>

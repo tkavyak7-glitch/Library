@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online PDF Reader | Peaceful Reading Space</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body class="reader-wrapper">
+
+  <!-- Top Progress Bar -->
+  <div class="reading-progress-header-bar">
+    <div class="reading-progress-header-fill" id="header-progress-fill"></div>
+  </div>
+
+  <!-- Reader Toolbar -->
+  <div class="reader-toolbar">
+    <div class="reader-title-area">
+      <a href="books.html" class="reader-btn">← Library</a>
+      <h2 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700;" id="reader-book-title">Loading PDF...</h2>
+    </div>
+
+    <!-- Reader Controls -->
+    <div class="reader-controls-group">
+      <button class="reader-btn" id="prev-page-btn">◀ Prev</button>
+      
+      <div class="reader-page-indicator">
+        <span>Page</span>
+        <input type="number" id="page-num-input" class="reader-page-input" value="1" min="1">
+        <span>of <strong id="total-pages-span">1</strong></span>
+      </div>
+
+      <button class="reader-btn" id="next-page-btn">Next ▶</button>
+      
+      <span style="border-right: 1px solid var(--border-color); height: 20px; margin: 0 0.3rem;"></span>
+
+      <button class="reader-btn" id="zoom-out-btn">🔍-</button>
+      <span style="font-size: 0.85rem; font-weight: 600;" id="zoom-level-span">100%</span>
+      <button class="reader-btn" id="zoom-in-btn">🔍+</button>
+
+      <span style="border-right: 1px solid var(--border-color); height: 20px; margin: 0 0.3rem;"></span>
+
+      <button class="reader-btn" id="fullscreen-btn" title="Toggle Fullscreen">⛶ Fullscreen</button>
+      <button class="theme-toggle-btn" id="theme-toggle">🌙</button>
+
+      <span style="border-right: 1px solid var(--border-color); height: 20px; margin: 0 0.3rem;"></span>
+
+      <!-- Reading Timer Display -->
+      <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.3rem;" title="Active Reading Timer">
+        <span>⏱️</span>
+        <span id="reading-timer-text">00:00</span>
+      </div>
+
+      <button class="reader-btn" onclick="toggleAmbienceSound()" id="ambience-btn">🎵 Ambience</button>
+    </div>
+  </div>
+
+  <!-- Main Reader Canvas & Notes Drawer -->
+  <div class="reader-body">
+    
+    <!-- PDF Render Canvas Area -->
+    <div class="reader-pdf-container" id="pdf-scroll-container">
+      <canvas id="pdf-canvas"></canvas>
+    </div>
+
+    <!-- Side Drawer (Notes & Bookmarks) -->
+    <div class="reader-drawer">
+      <div class="drawer-tabs">
+        <button class="drawer-tab active" id="tab-notes-btn" onclick="switchDrawerTab('notes')">📝 Notes</button>
+        <button class="drawer-tab" id="tab-bookmarks-btn" onclick="switchDrawerTab('bookmarks')">🔖 Bookmarks</button>
+      </div>
+
+      <!-- Notes Section -->
+      <div class="drawer-content" id="notes-tab-content">
+        <div>
+          <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 0.3rem;">Font Size:</label>
+          <select id="font-size-select" class="select-control" style="width: 100%; padding: 0.35rem 0.65rem; margin-bottom: 0.75rem;">
+            <option value="14px">Normal (14px)</option>
+            <option value="16px">Large (16px)</option>
+            <option value="18px">Extra Large (18px)</option>
+          </select>
+
+          <textarea id="new-note-text" class="form-control" rows="3" placeholder="Type a note for current page..." style="margin-bottom: 0.5rem;"></textarea>
+          <button onclick="saveCurrentNote()" class="btn btn-primary btn-sm" style="width: 100%;">+ Add Note to Page</button>
+        </div>
+
+        <div id="notes-list-container" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Bookmarks Section -->
+      <div class="drawer-content" id="bookmarks-tab-content" style="display: none;">
+        <button onclick="saveCurrentBookmark()" class="btn btn-secondary btn-sm" style="width: 100%;">🔖 Bookmark Current Page</button>
+        <div id="bookmarks-list-container" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/reader.js"></script>
+</body>
+</html>
